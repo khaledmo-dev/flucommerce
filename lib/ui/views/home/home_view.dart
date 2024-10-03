@@ -2,6 +2,7 @@ import 'package:flucommerce/app/app.locator.dart';
 import 'package:flucommerce/app/app.router.dart';
 import 'package:flucommerce/data/repositories/product_repository.dart';
 import 'package:flucommerce/services/translation_service.dart';
+import 'package:flucommerce/ui/common/no_connection.dart';
 import 'package:flucommerce/ui/common/responsive_icon.dart';
 import 'package:flucommerce/ui/common/responsive_text.dart';
 import 'package:flucommerce/ui/views/home/widgets/home_view_loading.dart';
@@ -57,7 +58,7 @@ class HomeView extends StackedView<HomeViewModel> {
       body: SafeArea(
         child: Builder(builder: (context) {
           if (viewModel.hasError) {
-            return Center(child: Text(viewModel.modelError.toString()));
+            return  NoConnectionWidget(reload: viewModel.initialise);
           }
           if (viewModel.isBusy) {
             return const HomeViewLoading();

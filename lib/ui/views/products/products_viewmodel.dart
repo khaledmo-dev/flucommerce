@@ -27,7 +27,11 @@ class ProductsViewModel extends FutureViewModel {
         .fetchProducts(currentPage, parameters, perPage: 9);
     response.fold(
       (l) {
-        setError(l);
+        if (currentPage == 1) {
+          setError(l);
+        } else {
+          setErrorForObject("paginate", l);
+        }
       },
       (r) {
         if (r.length < 9) {

@@ -1,10 +1,6 @@
 import 'package:flucommerce/data/models/product.dart';
 import 'package:flucommerce/services/translation_service.dart';
-import 'package:flucommerce/ui/common/app_colors.dart';
-import 'package:flucommerce/ui/common/base_button.dart';
-import 'package:flucommerce/ui/common/responsive_icon.dart';
-import 'package:flucommerce/ui/common/responsive_text.dart';
-import 'package:flucommerce/ui/common/ui_helpers.dart';
+import 'package:flucommerce/ui/common/common.dart';
 import 'package:flucommerce/ui/views/product_details/product_details_viewmodel.dart';
 import 'package:flucommerce/ui/widgets/common/attributes_section/attributes_section.dart';
 import 'package:flucommerce/ui/widgets/common/favorite_button/favorite_button.dart';
@@ -26,7 +22,9 @@ class ProductDetailsView extends StackedView<ProductDetailsViewModel> {
     Widget? child,
   ) {
     double ratePercentage = double.parse(product.averageRating) / 5;
-
+    if (viewModel.hasError) {
+      return NoConnectionWidget(reload: viewModel.initialise);
+    }
     return Scaffold(
       body: SafeArea(
         child: Stack(

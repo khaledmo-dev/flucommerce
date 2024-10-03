@@ -20,6 +20,9 @@ class CategoryDetailsView extends StackedView<CategoryDetailsViewModel> {
       appBar: AppBar(title: Text(category.name)),
       body: Builder(
         builder: (context) {
+          if (viewModel.hasError) {
+            return NoConnectionWidget(reload: viewModel.initialise);
+          }
           if (viewModel.isBusy) {
             return Center(
               child: LoadingAnimationWidget.fourRotatingDots(

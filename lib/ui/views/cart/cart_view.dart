@@ -1,12 +1,8 @@
 import 'package:flucommerce/app/app.locator.dart';
 import 'package:flucommerce/services/translation_service.dart';
-import 'package:flucommerce/ui/common/app_colors.dart';
-import 'package:flucommerce/ui/common/base_button.dart';
-import 'package:flucommerce/ui/common/responsive_text.dart';
-import 'package:flucommerce/ui/common/ui_helpers.dart';
+import 'package:flucommerce/ui/common/common.dart';
 import 'package:flucommerce/ui/views/cart/widgets/cart_tile.dart';
 import 'package:flutter/material.dart';
-import 'package:loading_animation_widget/loading_animation_widget.dart';
 import 'package:stacked/stacked.dart';
 
 import 'cart_viewmodel.dart';
@@ -39,7 +35,7 @@ class CartView extends StackedView<CartViewModel> {
               );
             }
             if (viewModel.hasError) {
-              return Center(child: Text(viewModel.modelError.body));
+              return NoConnectionWidget(reload: viewModel.initialise);
             }
             return ValueListenableBuilder(
               valueListenable: viewModel.cartListenable,

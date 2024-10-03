@@ -20,6 +20,9 @@ class ProductsView extends StackedView<ProductsViewModel> {
       appBar: AppBar(title: const Text("Products List")),
       body: Builder(
         builder: (context) {
+          if (viewModel.hasError) {
+            return NoConnectionWidget(reload: viewModel.initialise);
+          }
           if (viewModel.isBusy) {
             return Center(
               child: LoadingAnimationWidget.fourRotatingDots(

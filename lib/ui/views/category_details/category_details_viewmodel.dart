@@ -32,7 +32,11 @@ class CategoryDetailsViewModel extends FutureViewModel {
     );
     response.fold(
       (l) {
-        setError(l);
+        if (currentPage == 1) {
+          setError(l);
+        } else {
+          setErrorForObject("paginate", error);
+        }
       },
       (r) {
         if (r.length < 10) {

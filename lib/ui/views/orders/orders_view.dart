@@ -1,9 +1,6 @@
 import 'package:flucommerce/data/models/order.dart';
 import 'package:flucommerce/services/translation_service.dart';
-import 'package:flucommerce/ui/common/app_colors.dart';
-import 'package:flucommerce/ui/common/base_button.dart';
-import 'package:flucommerce/ui/common/responsive_text.dart';
-import 'package:flucommerce/ui/common/ui_helpers.dart';
+import 'package:flucommerce/ui/common/common.dart';
 import 'package:flucommerce/ui/views/orders/widgets/order_details_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:stacked/stacked.dart';
@@ -29,6 +26,9 @@ class OrdersView extends StackedView<OrdersViewModel> {
           ),
         ),
         body: Builder(builder: (context) {
+          if (viewModel.hasError) {
+            return NoConnectionWidget(reload: viewModel.initialise);
+          }
           if (viewModel.isBusy) {
             return const Center(child: CircularProgressIndicator());
           }
