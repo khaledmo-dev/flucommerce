@@ -1,4 +1,4 @@
-# flutter_woocommerce
+# Flucommerce
 
 Home Screen                                  |  Product details screen                       |  Search screen |  
 :-------------------------------------------:|:---------------------------------------------:|:---------------------------------------------:
@@ -13,15 +13,22 @@ Cart Screen                                  |  Order Details Screen            
 Flucommerce allow you to create a mobile app for your woocommerce website with simple configration, you can find configration guide here https://flucommerce.netlify.app/guides/getting-started/
 
 ## Features
-The app is build with a clean architecture approche using Bloc package for state management
 
 • Product Listing 
+
 • Category Listing
+
 • Cart page
+
 • Orders page
+
 • Favorites page
-• handles variable products snoothly
+
+• handles variable products smoothly
+
 • Light/Dark Mode
-• English and Arabic language with flutter_localization package
+
+• English and Arabic Localization
+
 • Webview for checkout page
 
