@@ -58,7 +58,7 @@ class HomeView extends StackedView<HomeViewModel> {
       body: SafeArea(
         child: Builder(builder: (context) {
           if (viewModel.hasError) {
-            return  NoConnectionWidget(reload: viewModel.initialise);
+            return NoConnectionWidget(reload: viewModel.initialise);
           }
           if (viewModel.isBusy) {
             return const HomeViewLoading();

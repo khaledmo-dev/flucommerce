@@ -46,6 +46,7 @@ class ProductRepositoryImpl implements ProductRepository {
     try {
       final stopwatch = Stopwatch()..start();
 
+
       var response = await _client.get(
         api: "${AppConstants.productUrl}/$productID/variations?per_page=100",
       );
